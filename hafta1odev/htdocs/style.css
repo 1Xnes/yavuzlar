@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: #000000;
+}
+.app{
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+.app h1{
+    font-size: 25px;
+    color: #0a4616;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+.quiz{
+    padding: 20px 0;
+
+}
+.quiz h2{
+    font-size: 18px;
+    color:#0a4616;
+    font-weight: 600;
+
+    
+}
+
+
+#difficulty{font-size: 18px;
+    color:#0a4616;
+    font-weight: 600;
+}
+.button1{
+    background: #ffffff;
+    color: #6f7871;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #00ff33;
+    padding: 20px;
+    margin: 5px 0;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.button1:hover:not([disabled]){
+    background: #a3d3ac;
+    color: #fff;
+    transform: scale(1.05);
+}
+.button1:disabled{
+    cursor: no-drop;
+}
+.button2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: 3px solid rgb(0, 0, 0); 
+    background: #ffffff;
+    color: #6f7871;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #000000;
+    padding: 20px;
+    margin: 5px 0;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.button2:hover:not([disabled]){
+    background: #a3d3ac;
+    color: #fff;
+    transform: scale(1.05);
+}
+.button2:disabled{
+    cursor: no-drop;
+}
+#next-question-button{
+    background: #343634;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 3px;
+    cursor: pointer;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+
+}
+#skip-question-button{
+    background: #343634;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 3px;
+    cursor: pointer;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+
+}
+#home-button{
+    background: #343634;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 3px;
+    cursor: pointer;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+
+}
+.correct{
+    background-color: #00ff33;
+}
+.incorrect{
+    background-color: #ff3333;
+}
+
+
+#myBar {
+    width: 10%;
+    height: 30px;
+    background-color: #04AA6D;
+    text-align: center; 
+    line-height: 30px; 
+    color: rgb(249, 0, 0);
+  }
+.questList{
+    background: #fff;
+    width: 90%;
+    max-width: 1500px;
+    margin: 200px auto 0;
+    border-radius: 20px;
+    padding: 40px;
+    justify-content: center;
+}
+
+.questList {
+    width: 60%;
+    height: auto;
+  }
+  
+  .questList table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  .questList table th {
+    background-color: rgb(44, 43, 43);
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .questList table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .questList table tr:hover {
+    background-color: #9f9c9c;
+  }
+  
+  .questList table tr:hover td {
+    color: #fff;
+  }
+  
+  .questList table tr:hover td a {
+    color: #fff;
+  }
+  
+  .questList table tr:hover td a:hover {
+    color: #016f16;
+  }
+  
+  .questList table a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .questList table a:hover {
+    color: #fff;
+  }
+  
+  .questList table button {
+    background-color: #fff;
+    color: #3c1515;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .questList table button:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+.editQuestion {
+    background: #fff;
+    width: 90%;
+    max-width: 1500px;
+    margin: 200px auto 0;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Quiz Uygulaması</title>
+        <link rel="stylesheet" href="style.css">
+      
+      </head>
+    <body>
+        <div class="app">
+            <h1>Karışık Sırayla Giden Quiz</h1>
+            <div class="quiz">               
+               <h2 id="question">Soru buraya geliyo</h2>
+               <div id="answer-buttons">
+               <button class="button1">cevap1 </button>
+               <button class="button1">cevap2 </button>
+               <button class="button1">cevap3 </button>
+               <button class="button1">cevap4 </button>
+               
+               </div>
+               <button id="skip-question-button" class="skip-button">Boş Bırak</button>
+               <button id="next-question-button">Sonraki Soru</button>
+               <button id="home-button" style="display: none;">Ana Sayfaya Dön</button>
+
+
+               <div id="difficulty">Zorluk: </div>
+
+
+               <br><br><br><br><br>
+               <h2>İlerleme Aşaması</h2>
+               <div id="myProgress">
+                <div id="myBar">10%</div>
+              </div>
+
+
+            </div>
+        </div>
+    </body>
+<script src="quizShuffle.js"></script>
+</html>

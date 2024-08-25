@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soru Ekle</title>
+  
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="questList">
+    <h1>Yeni Soru Ekle</h1>
+    
+    <form id="addQuestionForm">
+      <label for="question">Soru:</label><br>
+      <input type="text" id="question" name="question" class="button2" placeholder="Soruyu girin" required><br><br>
+      
+      <label for="answer1">Cevap 1:</label><br>
+      <input type="text" id="answer1" name="answer1" class="button2" placeholder="Cevap 1'i girin" required><br><br>
+      
+      <label for="answer2">Cevap 2:</label><br>
+      <input type="text" id="answer2" name="answer2" class="button2" placeholder="Cevap 2'yi girin" required><br><br>
+      
+      <label for="answer3">Cevap 3:</label><br>
+      <input type="text" id="answer3" name="answer3" class="button2" placeholder="Cevap 3'ü girin" required><br><br>
+      
+      <label for="answer4">Cevap 4:</label><br>
+      <input type="text" id="answer4" name="answer4" class="button2" placeholder="Cevap 4'ü girin" required><br><br>
+      
+      <label for="rightAnswer">Doğru Cevap:</label><br>
+      <input type="number" id="rightAnswer" name="rightAnswer" class="button2" placeholder="Doğru cevap numarasını girin" min="1" max="4" required><br><br>
+      
+      <label for="difficulty">Zorluk:</label><br>
+      <input type="text" id="difficultya" name="difficulty" class="button2" placeholder="Zorluk seviyesini girin" required><br><br>
+      
+      <button type="submit" class="button2">Soruyu Ekle</button>
+    </form>
+    
+    <br>
+    <a href="questionList.html" class="button2">Geri Dön</a>
+    <a href="index.html" class="button2">Ana Sayfaya Git.</a>
+  </div>
+
+</body>
+
+</html>
