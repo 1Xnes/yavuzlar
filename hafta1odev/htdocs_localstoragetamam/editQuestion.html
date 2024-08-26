@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soruyu Düzenle</title>
+  
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="editQuestion">
+    <h1>Soruyu Düzenle</h1>
+    <form id="editForm">
+      <label for="question">Soru:</label><br>
+      <input type="text" id="question" name="question" value="Mevcut soru" required><br><br>
+      
+      <label for="answer1">Cevap 1:</label><br>
+      <input type="text" id="answer1" name="answer1" value="Mevcut cevap 1" required><br><br>
+      
+      <label for="answer2">Cevap 2:</label><br>
+      <input type="text" id="answer2" name="answer2" value="Mevcut cevap 2" required><br><br>
+      
+      <label for="answer3">Cevap 3:</label><br>
+      <input type="text" id="answer3" name="answer3" value="Mevcut cevap 3" required><br><br>
+      
+      <label for="answer4">Cevap 4:</label><br>
+      <input type="text" id="answer4" name="answer4" value="Mevcut cevap 4" required><br><br>
+      
+      <label for="rightAnswer">Doğru Cevap:</label><br>
+      <input type="text" id="rightAnswer" name="rightAnswer" value="Doğru cevap numarası" required><br><br>
+      
+      <label for="difficulty">Zorluk:</label><br>
+      <input type="text" id="difficultya" name="difficulty" value="Mevcut zorluk seviyesi" required><br><br>
+      
+      <a type="submit" class="button2" href="questionList.html" onclick="saveQuestion() ">Kaydet</a>
+    </form>
+    
+    <br>
+    <a href="questionList.html" class="button2">Geri Dön</a>
+    <a href="index1.html" class="button2">Ana Sayfaya Git.</a>
+  </div>
+
+</body>
+<script src="editQuestion.js"></script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="searchResults"> 
+    <h1>Soru Ara</h1>
+    
+    <form id="searchForm" onsubmit="search(); return false;">
+      <label for="searchInput">Soru Ara:</label><br>
+      <input type="text" id="searchInput" name="searchInput" class="button2" placeholder="Anahtar kelimeyi girin" required><br><br>
+      
+      <button type="submit" class="button2">Ara</button>
+    </form>
+    
+      <h1>Sonuc</h1>
+      <table>
+      <thead>
+        <tr>
+          <th>Kaçıncı soru</th>
+          <th>Soru</th>
+          <th>Cevap 1</th>
+          <th>Cevap 2</th>
+          <th>Cevap 3</th>
+          <th>Cevap 4</th>
+          <th>Doğru Cevap</th>
+          <th>Zorluk</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+
+        
+      </tbody>
+      </table>
+    
+    <br>
+    <a href="questionList.html" class="button2">Geri Dön</a>
+  </div>
+
+  <script src="searchQuestion.js"></script>
+  
+</body>
+
+</html>
