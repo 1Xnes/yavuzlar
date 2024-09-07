@@ -21,6 +21,19 @@ if (isset($_GET['reset'])) {
     exit();
     }
 
+$listOfQuestions = GetQuestions();
+if ($listOfQuestions == array()) {
+        echo "<link rel='stylesheet' href='style.css'>";
+        echo "<div class='navbarContainer'>";
+        echo "<h1>Veritabanında soru bulunmamaktadır!</h1>";
+        echo "<br> <h2>Yakında soru eklenecektir.</h2>";
+        echo "<a href='index.php' class='questionListButton'>Ana Sayfaya Dön</a>";
+        echo "</div>";
+        exit();
+        }
+
+
+
 if (!isset($_SESSION['quiz_started'])) {
     $_SESSION['questions'] = getStudentSubmissionsNot($id);
     if (empty($_SESSION['questions'])) {
