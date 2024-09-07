@@ -1,0 +1,435 @@
+body {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #000000;
+  box-shadow: 0 4px 8px rgba(32, 32, 32, 0.1);
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 50%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #d5d4d4;
+  color: #000;
+}
+
+
+.login {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login h1 {
+  color: #fff;
+}
+.login p {
+  color: #fff;
+}
+
+.logo {
+  margin-bottom: 50px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #fff;
+}
+
+
+.logout {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.profile {
+  position: absolute;
+  left : 0;
+  top: 0;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 10px;
+
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  width: 750px;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.navbarContainer {
+  position: relative;  
+  background-color: black;
+  color: white;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+.navbarButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.addUserForm input {
+  margin: 0;
+  /* width: 100%; */
+  /* height: 40px; */
+}
+
+.addUserForm {
+  color: #fff;
+  font-size: 16px;
+  width: 500px;
+  height: auto;
+  padding: 20px;
+}
+
+select {
+  width: 200px;
+  height: 37px;
+  border-radius: 15px;
+}
+
+option {
+  text-align: center;
+}
+
+.admin-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.admin-options label {
+  margin: 0 10px;
+}
+
+
+.userList {
+  width: 60%;
+  height: auto;
+}
+
+.userList table {
+  margin-top: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.userList table th {
+  background-color: rgb(44, 43, 43);
+  padding: 10px;
+  color: #fff;
+}
+
+.userList table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.userList table tr:hover {
+  background-color: #9f9c9c;
+}
+
+.userList table tr:hover td {
+  color: #fff;
+}
+
+.userList table tr:hover td a {
+  color: #fff;
+}
+
+.userList table tr:hover td a:hover {
+  color: #000;
+}
+
+.userList table a {
+  color: #000;
+  text-decoration: none;
+}
+
+.userList table a:hover {
+  color: #fff;
+}
+
+.userList table button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.userList table button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Blog Page  */
+.blogContainer {
+  background-color: #ccc;
+  margin: 100px;
+  padding: 5rem;
+  border-radius: 15px;
+}
+
+.header {
+  margin-bottom: 7rem;
+  text-align: center;
+  font-size: 25px;
+}
+
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.post-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: scale(1.5);
+}
+
+
+textarea {
+  width: 100%;
+  border-radius: 15px;
+}
+
+textarea::placeholder {
+  text-align: center;
+}
+
+
+.profileContainer {
+  background-color: #ccc;
+  margin: 100px;
+  padding: 5rem;
+  border-radius: 15px;
+}
+.profileBar {
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 18px;
+}
+
+.addPostForm input {
+  margin: 0;
+  /* width: 100%; */
+  /* height: 40px; */
+}
+
+.addPostForm {
+  color: #ffffff;
+  font-size: 16px;
+  width: 500px;
+  height: auto;
+  padding: 20px;
+}
+
+.addPostForm h2{
+ color: rgb(255, 255, 255);
+
+}
+
+.quizContainer {
+  position: relative;  
+  background-color: black;
+  color: white;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+.quizButton {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.questionListButton {
+  text-align: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 3px;
+  border-radius: 8px;
+  width: 200px;
+  height: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.questList {
+  
+  width: 60%;
+  height: auto;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.questList table {
+  margin-top: 10px;
+  width: 150%;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: #9f9c9c;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.questList table th {
+  background-color: rgb(185, 185, 185);
+  padding: 10px;
+  color: #fff;
+}
+
+.questList table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.questList table tr:hover {
+  background-color: #1f1e1e;
+}
+
+.questList table tr:hover td {
+  color: #fff;
+}
+
+.questList table tr:hover td a {
+  color: #fff;
+}
+
+.questList table tr:hover td a:hover {
+  color: #e5a6a6;
+}
+
+.questList table a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.questList table a:hover {
+  color: #fff;
+}
+
+.questList table button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.questList table button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.questListContainerd {
+  position: relative;  
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+.button1{
+  background: #ffffff;
+  color: #6f7871;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #00ff33;
+  padding: 20px;
+  margin: 5px 0;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+}
