@@ -44,6 +44,21 @@ if ($couponCode) {
 
 $total = calculateCartTotal($cartItems, $discount);
 
+
+// bu kısımda kullanıcı bakiyesini aldık
+$user = getUserById($pdo, $userId);
+$currentBalance = $user['balance'];
+
+// bakiye kontrolü
+if ($currentBalance < $total) {
+    $_SESSION['error_message'] = "Yetersiz bakiye. Lütfen bakiyenizi artırın.";
+    header("Location: customer_cart.php");
+    exit();
+}
+
+
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pdo->beginTransaction();
 
@@ -56,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!isset($item['food_id'])) {
                 throw new Exception("Sepetteki bir öğenin yemek ID'si tanımlı değil.");
             }
-            addOrderItem($pdo, $orderId, $item['food_id'], $item['quantity'], $item['price']);
+            addOrderItem($pdo, $orderId, $item['food_id'], $item['quantity'], $item['price'], $item['note']);
         }
 
         // Kullanıcının bakiyesini güncelle
@@ -76,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
+
 ?>
 
 <!DOCTYPE html>

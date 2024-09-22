@@ -46,6 +46,7 @@ if (!$customer) {
                 <th>Toplam Fiyat</th>
                 <th>Durum</th>
                 <th>Sipariş Tarihi</th>
+                <th>Not</th>
             </tr>
             <?php foreach ($activeOrders as $order): ?>
             <tr>
@@ -53,6 +54,7 @@ if (!$customer) {
                 <td><?= htmlspecialchars($order['total_price']) ?> TL</td>
                 <td><?= htmlspecialchars($order['order_status']) ?></td>
                 <td><?= htmlspecialchars($order['created_at']) ?></td>
+                <td><?= htmlspecialchars($order['note'] ?? '') ?></td> <!-- Not alanını ekleyin -->
             </tr>
             <?php endforeach; ?>
         </table>

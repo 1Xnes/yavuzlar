@@ -95,6 +95,15 @@ CREATE TABLE order_items (
     order_id INT NOT NULL,
     quantity INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
+    note TEXT,
     FOREIGN KEY (food_id) REFERENCES food(id),
     FOREIGN KEY (order_id) REFERENCES `order`(id)
+);
+
+CREATE TABLE user_profile_photos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    photo_path VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

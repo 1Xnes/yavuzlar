@@ -8,6 +8,7 @@ requireRole('customer');
 
 $userId = $_SESSION['user_id'];
 $user = getUserById($pdo, $userId);
+$profilePhoto = getProfilePhoto($pdo, $userId);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['update_profile'])) {
@@ -35,16 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } elseif (isset($_POST['update_profile_picture'])) {
         if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
-            // Pseudo olarak dosya yükleme işlemini simüle ediyoruz
-            $uploadDir = __DIR__ . '/uploads/profile_pictures/';
-            $uploadFile = $uploadDir . basename($_FILES['profile_picture']['name']);
-
-            // Pseudo olarak dosya yükleme işlemini simüle ediyoruz
-            if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $uploadFile)) {
-                // Pseudo olarak profil resmi güncelleme işlemini simüle ediyoruz
+            try {
+                $photoPath = uploadProfilePhoto($pdo, $_FILES['profile_picture'], $userId);
                 $_SESSION['success_message'] = "Profil resmi başarıyla güncellendi.";
-            } else {
-                $_SESSION['error_message'] = "Dosya yüklenirken bir hata oluştu.";
+                $profilePhoto = $photoPath; // Güncellenmiş fotoğrafı al
+            } catch (Exception $e) {
+                $_SESSION['error_message'] = $e->getMessage();
             }
         } else {
             $_SESSION['error_message'] = "Geçersiz dosya.";
@@ -92,6 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <h2>Profil Resmi</h2>
+    <?php if ($profilePhoto): ?>
+        <img src="<?= $profilePhoto ?>" alt="Profil Resmi" style="max-width: 200px; max-height: 200px;">
+    <?php else: ?>
+        <p>Profil resmi yok.</p>
+    <?php endif; ?>
     <form method="POST" enctype="multipart/form-data">
         <input type="hidden" name="update_profile_picture" value="1">
         <label for="profile_picture">Profil Resmi:</label>

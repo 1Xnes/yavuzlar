@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($foodId && $quantity > 0) {
         $userId = $_SESSION['user_id'];
+        $note = $_POST['note'] ?? ''; // Not alanını ekleyin
         
         // Sepette başka bir restorandan yemek var mı kontrol et
         if (isCartFromDifferentRestaurant($pdo, $userId, $foodId)) {

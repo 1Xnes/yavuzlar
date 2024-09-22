@@ -16,9 +16,9 @@ docker-compose down
 
 ### Sorunlu olan Yerler
 
-- Müşteri Profil Sayfasında Pseudo profil fotoğrafı koyma kısmı
+- ~~Müşteri Profil Sayfasında Pseudo profil fotoğrafı koyma kısmı~~
 
-- Sepetteki güncellenebilen not kısmının backende gitmemesi
+- ~~Sepetteki güncellenebilen not kısmının backende gitmemesi~~
 
 - Her compose uplandığında başka bir volume kullanmaya başlaması
 
@@ -51,3 +51,15 @@ docker-compose down
 index.phpye ilk girildiğinde veritabanına default admin admin şeklinde bir kullanıcı ekliyor, sonrasında eklenecek her yer kullanıcıya kalmış, her sayfanın altında footeri içerecek şekilde kod var
 
 Veritabanı yapısını bazı veriler foreign key olacak şekilde ayarladım ve gereken bazı yerlerde join de kullanılıyor( belirli sql sorgularını içeren fonksiyonlarım)
+
+
+
+
+
+### Update2
+
+1. Bakiye uygunluk kontrolü (artık borca girmek yok)
+
+2. Profil fotoğrafı artık pseudo değil ve kendi profil fotoğrafınızı görebiliyorsunuz :)
+
+3. Sipariş notu fonksiyonel

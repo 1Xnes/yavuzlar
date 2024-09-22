@@ -80,34 +80,34 @@ $total = calculateCartTotal($cartItems, $discount);
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($cartItems as $item): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($item['food_name']) ?></td>
-                        <td><?= number_format($item['price'], 2) ?> TL</td>
-                        <td><?= number_format($item['price'] * (1 - $item['discount'] / 100), 2) ?> TL</td>
-                        <td>
-                            <form action="update_cart.php" method="POST">
-                                <input type="hidden" name="basket_id" value="<?= $item['id'] ?>">
-                                <input type="number" name="quantity" value="<?= $item['quantity'] ?>" min="1" max="10">
-                                <button type="submit" class="btn">Güncelle</button>
-                            </form>
-                        </td>
-                        <td><?= number_format($item['price'] * $item['quantity'] * (1 - $item['discount'] / 100), 2) ?> TL</td>
-                        <td>
-                            <form action="update_cart_note.php" method="POST">
-                                <input type="hidden" name="basket_id" value="<?= $item['id'] ?>">
-                                <input type="text" name="note" value="<?= htmlspecialchars($item['note']) ?>">
-                                <button type="submit" class="btn">Not Güncelle</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="remove_from_cart.php" method="POST">
-                                <input type="hidden" name="basket_id" value="<?= $item['id'] ?>">
-                                <button type="submit" class="btn">Kaldır</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+            <?php foreach ($cartItems as $item): ?>
+    <tr>
+        <td><?= htmlspecialchars($item['food_name']) ?></td>
+        <td><?= number_format($item['price'], 2) ?> TL</td>
+        <td><?= number_format($item['price'] * (1 - $item['discount'] / 100), 2) ?> TL</td>
+        <td>
+            <form action="update_cart.php" method="POST">
+                <input type="hidden" name="basket_id" value="<?= $item['id'] ?>">
+                <input type="number" name="quantity" value="<?= $item['quantity'] ?>" min="1" max="10">
+                <button type="submit" class="btn">Güncelle</button>
+            </form>
+        </td>
+        <td><?= number_format($item['price'] * $item['quantity'] * (1 - $item['discount'] / 100), 2) ?> TL</td>
+        <td>
+            <form action="update_cart_note.php" method="POST">
+                <input type="hidden" name="basket_id" value="<?= $item['id'] ?>">
+                <input type="text" name="note" value="<?= htmlspecialchars($item['note']) ?>">
+                <button type="submit" class="btn">Not Güncelle</button>
+            </form>
+        </td>
+        <td>
+            <form action="remove_from_cart.php" method="POST">
+                <input type="hidden" name="basket_id" value="<?= $item['id'] ?>">
+                <button type="submit" class="btn">Kaldır</button>
+            </form>
+        </td>
+    </tr>
+<?php endforeach; ?>
             </tbody>
         </table>
 

@@ -49,6 +49,7 @@ if (!$orderDetails) {
                 <th>Adet</th>
                 <th>Birim Fiyat</th>
                 <th>Toplam Fiyat</th>
+                <th>Not</th>
             </tr>
         </thead>
         <tbody>
@@ -58,6 +59,7 @@ if (!$orderDetails) {
                     <td><?= htmlspecialchars($item['quantity']) ?></td>
                     <td><?= number_format($item['price'], 2) ?> TL</td>
                     <td><?= number_format($item['quantity'] * $item['price'], 2) ?> TL</td>
+                    <td><?= htmlspecialchars($item['note'] ?? '') ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

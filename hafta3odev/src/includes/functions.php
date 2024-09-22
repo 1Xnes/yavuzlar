@@ -315,7 +315,10 @@ function getCustomersWithActiveOrders($pdo) {
 }
 
 function getActiveOrdersForCustomer($pdo, $customerId) {
-    $sql = "SELECT * FROM `order` WHERE user_id = ? AND order_status != 'Teslim Edildi' ORDER BY created_at DESC";
+    $sql = "SELECT DISTINCT o.*, oi.note
+            FROM `order` o
+            JOIN order_items oi ON o.id = oi.order_id
+            WHERE o.user_id = ? AND o.order_status != 'Teslim Edildi'";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$customerId]);
     return $stmt->fetchAll();
@@ -632,7 +635,7 @@ function getRestaurantCoupons($pdo, $restaurantId) {
     return $stmt->fetchAll();
 }
 
-function addToCart($pdo, $userId, $foodId, $quantity, $note = '') {
+function addToCart($pdo, $userId, $foodId, $quantity, $note) {
     $sql = "INSERT INTO basket (user_id, food_id, quantity, note) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([$userId, $foodId, $quantity, $note]);
@@ -682,17 +685,18 @@ function removeFromCart($pdo, $basketId) {
     return $stmt->execute([$basketId]);
 }
 
-function createOrder($pdo, $userId, $totalPrice) {
+function createOrder($pdo, $userId, $total) {
     $sql = "INSERT INTO `order` (user_id, order_status, total_price) VALUES (?, 'Hazırlanıyor', ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$userId, $totalPrice]);
+    $stmt->execute([$userId, $total]);
     return $pdo->lastInsertId();
 }
 
-function addOrderItem($pdo, $orderId, $foodId, $quantity, $price) {
-    $sql = "INSERT INTO order_items (order_id, food_id, quantity, price) VALUES (?, ?, ?, ?)";
+
+function addOrderItem($pdo, $orderId, $foodId, $quantity, $price, $note) {
+    $sql = "INSERT INTO order_items (order_id, food_id, quantity, price, note) VALUES (?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    return $stmt->execute([$orderId, $foodId, $quantity, $price]);
+    return $stmt->execute([$orderId, $foodId, $quantity, $price, $note]);
 }
 
 function updateUserBalance($pdo, $userId, $amount) {
@@ -981,4 +985,35 @@ function getFoodsByCompanyIdWithDeleted($pdo, $companyId, $restaurantId = null, 
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
     return $stmt->fetchAll();
+}
+
+
+function uploadProfilePhoto($pdo, $file, $userId) {
+    $targetDir = "/var/www/html/uploads/profile_pictures/";
+    if (!file_exists($targetDir)) {
+        mkdir($targetDir, 0755, true);
+    }
+    $fileName = uniqid() . "_" . basename($file["name"]);
+    $targetFile = $targetDir . $fileName;
+    
+    if (move_uploaded_file($file["tmp_name"], $targetFile)) {
+        $photoPath = "/uploads/profile_pictures/" . $fileName;
+        saveProfilePhoto($pdo, $userId, $photoPath);
+        return $photoPath;
+    } else {
+        throw new Exception("Dosya yüklenirken bir hata oluştu: " . error_get_last()['message']);
+    }
+}
+
+function saveProfilePhoto($pdo, $userId, $photoPath) {
+    $sql = "INSERT INTO user_profile_photos (user_id, photo_path) VALUES (?, ?)";
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute([$userId, $photoPath]);
+}
+
+function getProfilePhoto($pdo, $userId) {
+    $sql = "SELECT photo_path FROM user_profile_photos WHERE user_id = ? ORDER BY created_at DESC LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$userId]);
+    return $stmt->fetchColumn();
 }
