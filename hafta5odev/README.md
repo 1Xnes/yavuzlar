@@ -13,7 +13,7 @@ Shell'i açtığınızda ilk bu sayfa gelecek bu sayfada üst menü ve açıklam
 - **Ana Sayfa**: Web Shell'in giriş ekranı.
 - **Terminal (POST Request)**: Komutları POST isteği ile çalıştıran terminal.
 - **Terminal V2 (GET Request)**: Komutları GET isteği ile çalıştıran terminal.
-- **Dosya Yöneticisi**: Sisteminizdeki dosyaları ve dizinleri görüntüleyebilir, dosya yükleme ve silme işlemleri yapabilirsiniz.
+- **Dosya Yöneticisi**: Sisteminizdeki dosyaları ve dizinleri görüntüleyebilir düzenleyebilir, dosya yükleme ve silme işlemleri yapabilirsiniz.
 - **Dosya Arama**: Belirli bir dosyayı belirtilen dizinde arayabilirsiniz.
 - **Config Dosyası Tespiti**: Sistemdeki belirli dosya tiplerini (config dosyaları, suid/sgid dosyaları vb.) tespit edebilirsiniz.
 - **Sunucu Bilgileri**: Atılan sunucunun sistem bilgilerini görebilirsiniz.
@@ -24,6 +24,7 @@ Shell'i açtığınızda ilk bu sayfa gelecek bu sayfada üst menü ve açıklam
 2. **Dosya İndirme**: Dosya üzerine tıklayarak sisteminizden dosya indirebilirsiniz.
 3. **Dosya Silme**: Silmek istediğiniz dosya ya da klasöre tıklayıp, onayladıktan sonra silme işlemi yapabilirsiniz.
 4. **Dosya Yükleme**: Dosya yüklemek için formu kullanarak bilgisayarınızdan dosya seçin ve yükleyin.
+5. **Dosya Düzenleme:** Sistemdeki text tabanlı dosyaların içeriğini görebilir ve düzenleyebilirsiniz.
 
 ## Terminal Kullanımı
 
@@ -31,7 +32,7 @@ Shell'i açtığınızda ilk bu sayfa gelecek bu sayfada üst menü ve açıklam
 
 POST isteği kullanarak komutlarınızı çalıştırabileceğiniz bir terminaldir.
 
-Belirli sitelerde çalışmayabilir, ancak diğer terminal çok daha fazla yerde çalışır.
+Belirli lab sitelerinde çalışmayabilir, ancak diğer terminal çok daha fazla yerde çalışır.
 
 - **Komut Girme**: Komut alanına istediğiniz terminal komutunu yazın ve **Execute** butonuna tıklayın.
 - **Örnek Komutlar**: 
@@ -43,7 +44,7 @@ Belirli sitelerde çalışmayabilir, ancak diğer terminal çok daha fazla yerde
 
 Terminal V2, GET isteği kullanarak komut çalıştırmanızı sağlar. 
 
-Bu terminal bazı durumlarda POST ile çalışmayan ortamlarda alternatif olarak kullanılabilir.
+Diğerinin basit bir alternatifi.
 
 ## Dosya Arama
 
@@ -64,20 +65,6 @@ Sunucunuzla ilgili sistem bilgilerini görüntüleyebilirsiniz:
 
 **Dikkat!** `Config Dosyası Tespiti` fonksiyonu sisteme ağır yük bindirebilir ve kaynak kullanımını artırabilir. Çünkü aynı anda bir sürü komut çalıştırıyoruz bu sayfayı açtığımızda.
 
-
-
 ---
 
 Web Shell'in her fonksiyonunu menüden kolayca seçip kullanabilirsiniz.
-
-
-
-
-
-
-
-
-
-
-
-

