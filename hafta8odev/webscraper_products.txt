@@ -1,0 +1,15 @@
+Ürün Adı: Lenovo Yoga 91...
+Fiyat: $1199.73
+Açıklama: Lenovo Yoga 910 Grey, 13.9" FHD Touch, Core i5-7200U, 8GB, 256GB SSD, Windows 10 Home
+
+
+Ürün Adı: Acer Extensa 1...
+Fiyat: $439.73
+Açıklama: Acer Extensa 15 (2540) Black, 15.6" HD, Core i5-7200U, 4GB, 500GB, Linux
+
+
+Ürün Adı: Pavilion
+Fiyat: $609.99
+Açıklama: 15.6", Core i5-4200U, 6GB, 750GB, Windows 8.1
+
+
